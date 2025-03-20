@@ -1,4 +1,4 @@
-import React, { useState, useEffect, ReactNode } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Home, Settings, User, Menu, Sun, Moon } from 'lucide-react';
 
 const MobileApp = () => {
@@ -157,7 +157,7 @@ const MobileApp = () => {
 
 // タブボタンコンポーネント
 interface TabButtonProps {
-  icon: any;
+  icon: React.ReactElement;
   label: string;
   isActive: boolean;
   onClick: () => void;
@@ -182,7 +182,7 @@ const TabButton = ({ icon, label, isActive, onClick, darkMode }: TabButtonProps)
 
 // サイドメニューアイテムコンポーネント
 interface SideMenuItemProps {
-  icon: any;
+  icon: React.ReactElement;
   label: string;
   isActive: boolean;
   onClick: () => void;
