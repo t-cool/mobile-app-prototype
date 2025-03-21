@@ -23,8 +23,15 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: Add .nojekyll file
-        run: touch out/.nojekyll
+      - name: Verify out directory exists
+        run: |
+          if [ -d "out" ]; then
+            echo "Directory out exists."
+          else
+            echo "Creating out directory..."
+            mkdir -p out
+          fi
+          touch out/.nojekyll
 
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4
