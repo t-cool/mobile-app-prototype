@@ -5,12 +5,14 @@ on:
     branches:
       - main
 
+permissions:
+  contents: write
+
 jobs:
-  build-and-deploy:
+  deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - name: Setup Node.js
         uses: actions/setup-node@v3
@@ -23,17 +25,7 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: Verify out directory exists
-        run: |
-          if [ -d "out" ]; then
-            echo "Directory out exists."
-          else
-            echo "Creating out directory..."
-            mkdir -p out
-          fi
-          touch out/.nojekyll
-
-      - name: Deploy
+      - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           folder: out
