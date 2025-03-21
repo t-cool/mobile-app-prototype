@@ -89,12 +89,12 @@ const MobileApp = () => {
   const MobileView = () => (
     <div className={`flex flex-col h-screen max-w-sm mx-auto border ${darkMode ? 'border-gray-700' : 'border-gray-300'} rounded-lg overflow-hidden ${darkMode ? 'bg-gray-900' : 'bg-gray-100'}`}>
       {/* アプリコンテンツ */}
-      <div className={`flex-1 overflow-y-auto ${darkMode ? 'bg-gray-800' : 'bg-white'}`}>
+      <div className={`flex-1 overflow-y-auto pb-16 ${darkMode ? 'bg-gray-800' : 'bg-white'}`}>
         {renderContent()}
       </div>
 
       {/* ナビゲーションタブ */}
-      <div className={`flex justify-around items-center h-16 ${darkMode ? 'bg-gray-900 border-gray-700' : 'bg-white border-gray-300'} border-t`}>
+      <div className={`fixed bottom-0 left-0 right-0 flex justify-around items-center h-16 ${darkMode ? 'bg-gray-900 border-gray-700' : 'bg-white border-gray-300'} border-t`}>
         <TabButton 
           icon={<Home size={24} />} 
           label="ホーム" 
