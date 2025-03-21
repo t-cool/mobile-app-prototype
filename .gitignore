@@ -35,3 +35,5 @@ next-env.d.ts
 # エディタ設定
 .vscode/
 .idea/ 
+
+node_modules/
